@@ -1,0 +1,4 @@
+[
+    { "caption": "-" },
+	{ "caption": "Diff with current tab…", "command": "diff_tabs", "args": { "group": -1, "index": -1 } }
+]
