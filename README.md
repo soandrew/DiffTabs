@@ -32,7 +32,3 @@ The "Packages" directory is located at:
     - OS X: `~/Library/Application Support/Sublime Text 3/Packages`
     - Linux: `~/.config/sublime-text-3/Packages`
     - Windows: `%APPDATA%\Sublime Text 3\Packages`
-
-## Dependencies
-
-DiffTabs serves as a wrapper around the built in Diff package, so if for any reason your installation did not come with this core package, this plugin will not work. This also limits the diff to unified format.
