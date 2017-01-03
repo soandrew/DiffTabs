@@ -33,9 +33,7 @@ class DiffTabsCommand(sublime_plugin.WindowCommand):
             v.set_name(os.path.basename(bname) + " -> " + os.path.basename(aname))
             v.set_scratch(True)
             v.set_syntax_file('Packages/Diff/Diff.tmLanguage')
-            edit = v.begin_edit()
-            v.insert(edit, 0, difftxt)
-            v.end_edit(edit)
+            v.run_command('append', {'characters':difftxt})
 
     def is_visible(self, group, index):
         window = self.window
