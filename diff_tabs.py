@@ -5,6 +5,9 @@ import difflib
 import time
 import os.path
 
+def is_st2():
+    return sublime.version()[0] == '2'
+
 class DiffTabsCommand(sublime_plugin.WindowCommand):
     def run(self, group, index):
         window = self.window
@@ -32,8 +35,14 @@ class DiffTabsCommand(sublime_plugin.WindowCommand):
             v = window.new_file()
             v.set_name(os.path.basename(bname) + " -> " + os.path.basename(aname))
             v.set_scratch(True)
-            v.set_syntax_file('Packages/Diff/Diff.tmLanguage')
-            v.run_command('append', {'characters':difftxt})
+            if is_st2():
+                v.set_syntax_file('Packages/Diff/Diff.tmLanguage')
+                edit = v.begin_edit()
+                v.insert(edit, 0, difftxt)
+                v.end_edit(edit)
+            else:
+                v.assign_syntax('Packages/Diff/Diff.sublime-syntax')
+                v.run_command('append', {'characters': difftxt})
 
     def is_visible(self, group, index):
         window = self.window
