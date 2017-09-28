@@ -20,7 +20,7 @@ Your diff results will appear in a new tab.
 
 **With Git:** Clone the repository to your Sublime Text "Packages" directory:
 
-`git clone https://github.com/soandrew/DiffTabs.git`
+- `git clone https://github.com/soandrew/DiffTabs.git`
 
 The "Packages" directory is located at:
 
