@@ -1,6 +1,6 @@
 # DiffTabs
 
-Sublime Test 2/3 plugin that adds the option to diff the current tab with another open tab.
+Sublime Text 2/3 plugin that adds the option to diff the current tab with another open tab.
 
 ## Usage
 
