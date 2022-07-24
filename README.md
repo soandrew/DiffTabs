@@ -1,8 +1,10 @@
 # DiffTabs
 
-Sublime Text 2/3 plugin that adds the option to diff the current tab with another open tab.
+Sublime Text 2/3/4 plugin that adds the option to diff the current tab with another open tab.
 
 ## Usage
+
+![usage-1](https://user-images.githubusercontent.com/15936962/180658183-5ae16438-1cce-4062-86cb-9a23fddfd113.gif)
 
 Right click another tab along the tab bar and select "Diff with current tab…" (The tab you right click will be the from-file and the current tab will be the to-file).
 Your diff results will appear in a new tab.
@@ -28,7 +30,7 @@ The "Packages" directory is located at:
     - OS X: `~/Library/Application Support/Sublime Text 2/Packages`
     - Linux: `~/.config/sublime-text-2/Packages`
     - Windows: `%APPDATA%\Sublime Text 2\Packages`
-- ST3:
+- ST3/ST4:
     - OS X: `~/Library/Application Support/Sublime Text 3/Packages`
     - Linux: `~/.config/sublime-text-3/Packages`
     - Windows: `%APPDATA%\Sublime Text 3\Packages`
