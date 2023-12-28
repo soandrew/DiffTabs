@@ -1,0 +1,32 @@
+[
+  {
+    "id": "preferences",
+    "children": [
+      {
+        "caption": "Package Settings",
+        "mnemonic": "P",
+        "id": "package-settings",
+        "children": [
+          {
+            "caption": "DiffTabs",
+            "children": [
+              {
+                "command": "diff_tabs_open_default_settings",
+                "caption": "Settings – Default"
+              },
+              {
+                "command": "diff_tabs_open_user_settings",
+                "caption": "Settings – User"
+              },
+              {
+                "command": "diff_tabs_edit_settings",
+                "caption": "Settings"
+              },
+              { "caption": "-" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

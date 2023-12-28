@@ -8,6 +8,19 @@ import os.path
 def is_st2():
     return sublime.version()[0] == '2'
 
+def load_settings():
+    return sublime.load_settings("diff_tabs.sublime-settings")
+
+def populate_view(view, txt):
+    if is_st2():
+        view.set_syntax_file('Packages/Diff/Diff.tmLanguage')
+        edit = view.begin_edit()
+        view.insert(edit, 0, txt)
+        view.end_edit(edit)
+    else:
+        view.assign_syntax('Packages/Diff/Diff.sublime-syntax')
+        view.run_command('append', {'characters': txt})
+
 class DiffTabsCommand(sublime_plugin.WindowCommand):
     def run(self, group, index):
         window = self.window
@@ -32,17 +45,16 @@ class DiffTabsCommand(sublime_plugin.WindowCommand):
         if difftxt == "":
             sublime.status_message("Files are identical")
         else:
-            v = window.new_file()
-            v.set_name(os.path.basename(bname) + " -> " + os.path.basename(aname))
-            v.set_scratch(True)
-            if is_st2():
-                v.set_syntax_file('Packages/Diff/Diff.tmLanguage')
-                edit = v.begin_edit()
-                v.insert(edit, 0, difftxt)
-                v.end_edit(edit)
+            output_to = load_settings().get('output_to', "buffer")
+            if output_to == "panel":
+                v = window.get_output_panel('diff_tabs') if is_st2() else window.create_output_panel('diff_tabs')
+                populate_view(v, difftxt)
+                window.run_command('show_panel', {'panel': 'output.diff_tabs'})
             else:
-                v.assign_syntax('Packages/Diff/Diff.sublime-syntax')
-                v.run_command('append', {'characters': difftxt})
+                v = window.new_file()
+                v.set_name(os.path.basename(bname) + " -> " + os.path.basename(aname))
+                v.set_scratch(True)
+                populate_view(v, difftxt)
 
     def is_visible(self, group, index):
         window = self.window

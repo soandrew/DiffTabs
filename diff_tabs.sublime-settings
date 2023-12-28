@@ -1,0 +1,4 @@
+{
+  // Where to display diff output to (buffer|panel)
+  "output_to": "buffer"
+}
