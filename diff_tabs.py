@@ -36,8 +36,8 @@ class DiffTabsCommand(sublime_plugin.WindowCommand):
         a = aview.substr(sublime.Region(0, aview.size())).splitlines()
         b = bview.substr(sublime.Region(0, bview.size())).splitlines()
 
-        adate = time.ctime() if aview.is_dirty() else time.ctime(os.stat(aname).st_mtime)
-        bdate = time.ctime() if bview.is_dirty() else time.ctime(os.stat(bname).st_mtime)
+        adate = time.ctime() if aview.is_dirty() or aview.is_scratch() else time.ctime(os.stat(aname).st_mtime)
+        bdate = time.ctime() if bview.is_dirty() or bview.is_scratch() else time.ctime(os.stat(bname).st_mtime)
 
         diff = difflib.unified_diff(b, a, bname, aname, bdate, adate, lineterm='')
         difftxt = u"\n".join(line for line in diff)
