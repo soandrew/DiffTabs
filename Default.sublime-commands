@@ -1,5 +1,9 @@
 [
   {
+    "caption": "DiffTabs: Diff With Current Tab…",
+    "command": "diff_tabs_palette"
+  },
+  {
     "caption": "Preferences: DiffTabs Settings – Default",
     "command": "diff_tabs_open_default_settings"
   },
